@@ -3,9 +3,48 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Project;
 use Illuminate\Http\Request;
+
 
 class ProjectController extends Controller
 {
-    //
+    
+
+    public function index()
+    {
+        $projects = Project::limit(20)->get();
+        return view('admin.project.index', compact('projects'));
+    }
+
+    public function create()
+    {
+        return view('admin.project.create');
+    }
+
+    public function store(Request $request)
+    {
+
+    }
+
+    public function show(Project $project)
+    {
+        return view('admin.project.show', compact('project'));
+    }
+
+    public function edit(Project $project)
+    {
+        return view('admin.project.edit', compact('project'));
+    }
+
+    public function update(Request $request, Project $project)
+    {
+        
+    }
+
+    public function destroy(Project $project)
+    {
+        $project->delete();
+        return redirect()->route('admin.project.index');
+    }
 }
