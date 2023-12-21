@@ -25,14 +25,15 @@
                 <tr>
                     <td>{{ $project->id }}</td>
                     <td>
-                        <a href="{{ route('admin.project.show', $project) }}">{{ $project->title }}</a>
+                        <a href="{{ route('admin.projects.show', $project) }}">{{ $project->title }}</a>
+
                     </td>
                     <td>{{ $project->content }}</td>
                     <td>{{ $project->my_project }}</td>
                     <td>{{ $project->technologies }}</td>
                     <td>
-                        <a href="{{ route('admin.project.edit', $project) }}" class="btn btn-primary">Edit</a>
-                        <form action="{{ route('admin.project.destroy', $project) }}" method="POST" style="display: inline;">
+                        <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-primary">Edit</a>
+                        <form action="{{ route('admin.projects.destroy', $project) }}" method="POST" style="display: inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Delete</button>
