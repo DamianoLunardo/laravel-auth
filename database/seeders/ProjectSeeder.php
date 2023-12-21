@@ -12,6 +12,14 @@ class ProjectSeeder extends Seeder
 {
     public function run(Faker $faker)
     {
-        
+        for ($i = 0; $i < 10; $i++) {
+            $new_project = new Project();
+            $new_project->title = $faker->sentence(3);
+            $new_project->content = $faker->paragraphs(3, true);
+            $new_project->my_projects = $faker->paragraphs(3, true);
+            $new_project->technologies = $faker->sentence(3);
+            
+            $new_project->save();
+        }
     }
 }
